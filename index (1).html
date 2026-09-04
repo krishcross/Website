@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishnendu Samanta — Optical Imaging &amp; Biomedical Instrumentation</title>
+<meta name="description" content="Krishnendu Samanta, PhD — Postdoctoral researcher in biomedical optical instrumentation and imaging, Pennsylvania State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F2;
+    --paper-raised:#EFF1EA;
+    --ink:#161B22;
+    --ink-soft:#4B5259;
+    --rule:#D8DBD1;
+    --accent:#1F5C61;
+    --accent-soft:#1F5C6122;
+    --ochre:#A9782F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);}
+  a:hover{border-bottom-color:var(--accent);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper-raised);
+  }
+  .hero-fringes{
+    position:absolute;
+    top:0; right:-8%;
+    width:64%; height:100%;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    padding:68px 0 44px;
+    display:flex;
+    gap:32px;
+    align-items:flex-end;
+  }
+  .hero-photo{
+    flex:0 0 auto;
+    width:118px; height:118px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--rule);
+    background:#fff;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-text h1{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-weight:600;
+    font-size:2.55rem;
+    line-height:1.08;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .hero-text .role{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-style:italic;
+    font-size:1.12rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .hero-links{
+    display:flex; flex-wrap:wrap; gap:4px 18px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  .hero-links a{border-bottom:none;color:var(--ink-soft);}
+  .hero-links a:hover{color:var(--accent);}
+
+  /* ---------- Tabs ---------- */
+  .tabbar{
+    position:sticky;
+    top:0;
+    z-index:5;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+  }
+  .tabbar-inner{
+    display:flex;
+    gap:4px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .tabbar-inner::-webkit-scrollbar{display:none;}
+  .tab-btn{
+    flex:0 0 auto;
+    appearance:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:"IBM Plex Sans";
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    padding:16px 14px 13px;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500;}
+  .tab-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:40px 0;display:none;}
+  section.active{display:block;}
+  h2{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin:0 0 22px;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+  }
+  h2::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+    transform:translateY(-4px);
+  }
+  p{margin:0 0 14px;color:var(--ink);}
+  .lede{font-size:1.02rem;color:var(--ink);max-width:66ch;}
+
+  /* ---------- Timeline (experience / education) ---------- */
+  .entry{
+    display:grid;
+    grid-template-columns:108px 1fr;
+    gap:18px;
+    padding:0 0 22px 0;
+    border-left:1px solid var(--rule);
+    padding-left:20px;
+    margin-left:2px;
+    position:relative;
+  }
+  .entry:last-child{padding-bottom:2px;}
+  .entry::before{
+    content:"";
+    position:absolute;
+    left:-4.5px; top:4px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .entry .when{
+    font-variant-numeric:tabular-nums;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    padding-top:2px;
+  }
+  .entry .what strong{font-weight:600;font-size:1.02rem;}
+  .entry .what .org{color:var(--ink-soft);font-style:italic;font-family:"Source Serif 4",serif;font-size:0.96rem;display:block;margin-top:2px;}
+  .entry .what .detail{font-size:0.92rem;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:560px){
+    .entry{grid-template-columns:1fr;gap:4px;}
+    .entry .when{padding-top:0;}
+  }
+
+  /* ---------- Publications ---------- */
+  .pub-group h3{
+    font-family:"IBM Plex Sans";
+    font-weight:600;
+    font-size:0.82rem;
+    letter-spacing:0.02em;
+    color:var(--ochre);
+    margin:26px 0 10px;
+  }
+  .pub-group:first-child h3{margin-top:0;}
+  ol.pubs{
+    margin:0; padding:0;
+    counter-reset:pub;
+    list-style:none;
+  }
+  ol.pubs li{
+    counter-increment:pub;
+    display:flex;
+    gap:12px;
+    padding:9px 0;
+    border-top:1px solid var(--rule);
+    font-size:0.94rem;
+  }
+  ol.pubs li:first-child{border-top:none;}
+  ol.pubs li::before{
+    content:counter(pub);
+    flex:0 0 auto;
+    width:20px;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink-soft);
+    font-size:0.82rem;
+    padding-top:2px;
+  }
+  ol.pubs li .cite .authors{color:var(--ink);}
+  ol.pubs li .cite .self{font-weight:600;}
+  ol.pubs li .cite .venue{color:var(--accent);font-style:italic;}
+  ol.pubs li .cite .year{color:var(--ink-soft);}
+
+  /* ---------- Lists (conferences, awards, extracurricular) ---------- */
+  ul.plain{list-style:none;margin:0;padding:0;}
+  ul.plain li{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:9px 0;
+    border-top:1px solid var(--rule);
+    font-size:0.94rem;
+  }
+  ul.plain li:first-child{border-top:none;}
+  ul.plain li .yr{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:0.86rem;}
+
+  /* ---------- Competence ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;}
+  .grid2 .k{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.02em;}
+  .grid2 .v{font-size:0.94rem;margin-bottom:14px;}
+  @media (max-width:560px){.grid2{grid-template-columns:1fr;}}
+
+  /* ---------- References ---------- */
+  .refs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+  .refs .ref strong{display:block;font-size:0.96rem;}
+  .refs .ref span{display:block;font-size:0.86rem;color:var(--ink-soft);}
+  @media (max-width:640px){.refs{grid-template-columns:1fr;}}
+
+  footer{padding:30px 0 60px;text-align:center;color:var(--ink-soft);font-size:0.82rem;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-fringes" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Two-source interference fringes, referencing the author's structured-illumination / interference-lithography work -->
+    <g fill="none" stroke="#1F5C61" stroke-width="1">
+      <g opacity="0.5">
+        <circle cx="120" cy="230" r="30"/><circle cx="120" cy="230" r="60"/><circle cx="120" cy="230" r="90"/>
+        <circle cx="120" cy="230" r="120"/><circle cx="120" cy="230" r="150"/><circle cx="120" cy="230" r="180"/>
+        <circle cx="120" cy="230" r="210"/><circle cx="120" cy="230" r="240"/><circle cx="120" cy="230" r="270"/>
+      </g>
+      <g opacity="0.5">
+        <circle cx="360" cy="230" r="30"/><circle cx="360" cy="230" r="60"/><circle cx="360" cy="230" r="90"/>
+        <circle cx="360" cy="230" r="120"/><circle cx="360" cy="230" r="150"/><circle cx="360" cy="230" r="180"/>
+        <circle cx="360" cy="230" r="210"/><circle cx="360" cy="230" r="240"/><circle cx="360" cy="230" r="270"/>
+      </g>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-photo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAEbASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7LooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACijNNd1RC7MFVRkknAA9aAHUV5b4z+Ovgbw7cS2kV1Nqt1ESHS0XKKR6uePyzXk3iH9qTVY3xp+i6dbKT8gmdpGx+GK2hhqs9kS5xW7PqujNfGdx+0347uZQbVdJt1HUG1LZ/Nq4rxh8WPHHiKRzqeu3SRk/6uIiONR6YWt1gKt9dDN1opH3/AOYmcb1z6Zp2a/NSLVdV8pWS/nbDBifMOT+OeteofDD45eK/Cs0SXt7LrWkqcTWt3JmRB6xyHofY8VVTATirp3CNdM+26K828LfG74da9DGy66mnyuP9VfKYiD6bvun867ix17RL+MSWOsaddI3RoblHB/I1xOElujVNM0aKTNLUjCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACjNITXzn+0N8dZNGvJvC/g+6C3kbFLu+QBvLI+8ie47n8BWlKlKrLliTKSirs9g+Jnj/wAP+AdFbUdauCZWBFvaREGadvRR6epPAr48+LHxt8X+NUlto7htL0qR9iWds2Aw/wBture/Qe1edazrV9q1zc6jqeoXN3O42iW4kLuRn3/lVRpZJlSKKMY5Ab2Pf+VezQwUKS5p6s4pVpzdol2O5SK13yONwI5J/wA88VhTzebMZWkDMeSe/wBK0/7OnmBwysMgEdqlHh0OgcSliecKtb+3pxe5r9VqSWxjCfBJ3fmOat29yrqUlbBxhW6mpX0ZjKYkErtnAA6CrsXhm7DBhby7QOrAjJpTxNO24RwdR9CvabYwxjmTLcZzgflT7jEWXIxu4Yg/KR+FW7bw5fzTFYrVxjqCOtbVj4GurjAaCSJW4AHH6Vz1MZTjq2bQwNVq1jlbS8/eGMAFBztY56d60bK+ntJxcW8siBD8rKcMufUVuan8MtRjR2tFcqOfmHOfUGuQvbfUdJuBaatE6KM+W7/Kw+h71VLEUa/wszrYarRWqPTPBvxm8ceGLmJbDWjc2cWWltbhDJFj05OQT7Gvqj4PfGLw58QYVtFddP1pVzJZSP8Afx1MZ/iHt1H618C/aY0BRw7oxyTuzk+/etXSNcls7mGe2xG0bAr5WUK45Az1qK+DjNXjozGnWaep+mNFeY/s4+M5fGXgNZru6e5urNxE8knLspGV3HuRyM98Zr06vHlFxdmdqd1cKKKKkYUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUGikoA8q/aP+JUfgTwoLOyk/4nWpq0dsAeYU6NKfpkAe59q+EtWvN0x3OWlcHe5Pc8/wCOa9j/AGvb6eb4v6iHnJW3ghghUH7ihA2PxZmP414ho9hcatqsNnbKXklIUnH3R0J/AV7+DpxpUed9Thqc1WpyI2PC+hy+IrtuDDaxn5nPQ+w9a9E0nwcsp2RRtHFtIyepX6+n0rrPD/hy30vTbeytUAWLl29f/r101vAqYwAB2rwcZmc6kny7H0uEy6FKOu5x1p4HiUAlUGOjDggfhWiPBNvMuwRdercAf5/Guwt1GetaNvtwDxXlTxVR9T0o0YLoczpvgyxtYggijwPatFvD9pjHlDA7dq6JQrDsalRV9hXLKtNvVmnKktEc/B4etUjyIQGHTjpWjZ6VbRsdsS9fStRQKcAO1S5ye4WKMunRSjb5Y2k+nSuM+IXga01ewnEkYfcvzZGcHsc16KOB/wDXpkiq6lHAIParp1ZU5c0WTKEZrlkj4i8TaFceHtSbT7k4Gf3chHy49D7VmRy4yseV9c9R9D+HT3r6b+Lvge11XTJmSI7lBdGUcqf8K+YLyynsL6S2umkheNvu9CDX2eXY5YqGu6PlcfgfYSutmfXP7B995lv4nsJWImiMD7D/AHfnGcfpX1CK+I/2L9Vk034sJbK+631Wykt5OR8roA68df4Tz719uDpXHjY2rMxou8AooorlNQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApDS0UAfAP7Tl79s+MPiZhubybryQQMfdRAR+FU/ghpDNfHUHxtAZCPRgc5qn8V/OufHGvGZW83+0LvzSRjkyMc/lgfhXV/BWNl0l2bBG8kYNetjZOng0kTl0OfFXZ6TAuF+tWFBz0qOIcirUCbjXyMmfWLQfEpIzVuEle+RRFGAKnRR1BrFu5rElhkORzVuNweTUEcan2PpUoUg4qGUyXfzT94zg1CB+tSBO1SKw/fge1G7PIqN1wKTJxjFFxWItRjE0BQqGBGCDXzR8dvDpt75b6OPAcn5v5cV9LyvsOevqDXmPxyhgbQJJ5MDYd4b0NehllZ068bdTjx1FVKLTPAvCOs3nhvX9N1yxJW4s50mTB+8VYfL+P8jX6V+FtZtfEPh3T9bsTm3vrdJ09RuGcH3HT8K/NGO3WKG2hUqzBmYFeQeQAP0r70/Zg+0j4H+HvtRJYpLsyf4PNfb+lfT5hFOKkfJULqTR6ZRRRXlnUFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFBoooA+B/2g9Kl0H4ta5FOreXPdyTLk8MknzjB+jYP0rQ+B2H0i7j3FvLmwD6ggYr0f8Aba0JIrvRPEMYANyDZzYTJO05HP0Zh+FeYfAEstnrQIIVZ49v4ivQxU/aYK5WAThifU9TjIJJ4AqrceILGykdHYnZxlTnNZPim+mjg8iBipPLEDn6V5/qZvGRgJNoP3stXg06Cnqz6Gc2tj0//hNdMkxCJTHI5xtPYdzVtfENm8Y8u7SQ9gDXzrrKTE+bFfruQY4kGcVmadq+pW9wS127jpw2a6v7NjJXizKOKlGVmj6y0rWY5iAT+ta4uVIzXgHw98R3Uzskr5PXk16zp+oedFnd2ryK9F0pWZ6cGpK6Ole9VAGJGPrU9vexyrwRke9eXeOvE7aZGYgxXIzurzPUfiRqseFtndVBPINXRwk6quiKs1TV2fUiSKTyuadJGNuRXzXoXxS1eQpDIJTjuK9P8NeL55ihnkLDHKmlWwc6e5hCupbHbXB615r8defB7HIBZ1XP1/8ArCu/a7S6XzI+hFeY/H65SLw9BGScyOcKP4sDp/ntmjARf1iK8x4uSVCT8j58gu3g1CUOdyoxVB6Yr9KPhBpv9j/DHw5p5BBj0+NmB6gsNx/9Cr81NBtTda3DYbS01xOkSA997AAfXmv1RtIVgtooFGFjRUA9MDFfV5g7cqPkKKs2S0UUV5puFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFR3MqQQSTyMFSNSzE9gBk1JWL45n+zeDtYm/u2cvT3Uiky6ceeSj3Pnj49+I5PiFoBtNNa1EOn3InRQ5LKyj+PHqCfzrifg3ZCDw5fztHtM98wx3woA/rVrwhpYOmXN2gbfKSjj+8M9K6Hwtai30OJNoUyySTMB0yzk1zPFydF02fS4vLKWFrrk6GD4ok2qXKnbmvMdVlutRv/KW2mud7bILYHYjHu0jenoO9e26pYCdChTIPWuS1XTvs0e6CAHbzjpmlhaqjvuZ1KbktDx/xFd6zol9LZXIRVjCnZaWy7efc9u3TtVGS3v7qyk1T+ztkSy+UZoV6nAOSo9jziu71uaxu3T+0bB5ZY/lDAsrY9Mr1FXbKCW7sorKysFtLVfuLyD7/Un1Nep9ZiorQ5VhJKWrMf4e2VwL+FxkRzDIPUcda9w0DSrgQBiCVPPTFY3gTwxHA0ZZFVUJIGOma9esbSJbURKoI214eNre0ndHp0lyR1Pmr41JctqUUQVlhRfmOOp9K83iNskym525JwIlQySH6joK+kviz4Ze+064SJG+Y5JXg49M15DfadpV1on9gtDBYTxPvUTRkBj7nkkY713YKvFU+UxxFOUtUQeHNd8LNItpMIrS5+6ouoPLDH03AkV3mkzWryPbxw+VNFgvEzfwnowI6qexrkPAnw/0W1uJbnVpNPuFMZiigjcuPm6uSQOew44zmut8MeELiwnjeO4a5t4tywMwwyI3VPdenX0qcW6L+FmOHhV2mju/DzsbYjgD0rzH9ou5dLzTbb5toiLYHcscf/W/GvXdEsDBABkdK8h/aEt3m8UaYoQtm1wAvXdv4xXLljX1pNhj0/q7SMb9mbwXc+IPjTozPGDbWMp1K4JGQI4zhfzcqPz9K/QMZ7182fsiR2dnrepxyGJ9VntFNwwHzLhs7f1J+tfSgr169ZVp3XQ8CVCdD3Zqz3CiiisSQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArnPiYpfwHrK+ts2f0ro6yvF9v8AavC2qQZ5e1k/9BNTLVM1oS5asX2aPli4uTo/g5Zo/kZ9zfTsK1/DUnnaLYSd3t0b8SOaoa3psmo6I1lEC0kf8A6nvVrwkSNItUwQY024PbHFeXBXiz7TMZJyT6u50MdurAAjOabNo9tOCHhHPfFWLNhxmtBJFC8nisJSaOOKOPvPCNu7ttjUe+2ootCtbEg7OQOprsZ5o0jJYjAHWuWnuhqerpaRNhOWkbPRR/j0qlUk9GzVRNTR9vlYjUAZrsbAMIVxnIH51z+ntaq3lxsny9ga6XTWR1xuXp60nqTLRFLU4I5V2yKOa898T+B7PUJC7WyyL1Ax0+hr0vWIlubeSK2kUyBSVIPftXO6LqcV3DskOGHBB6qR1FQpyg7plQV43OL0XwTZWLgxwyYHQMxIrr7LTdi7fLwK3oYom/hBzVryAE46elKVSUtyJSMbyvKXPQd653VtCtNU8V2t3cRB/Igwue2W/nXVaq8cFsWkYIM4yfftXD3F5O/jq0t4nbasADqPc1MW4pyRpSp+0lY3vgVoaaP8YNVSFdsDWjsg+rCvoQV5P8MLM/8ACwdQvQPlFtsJ/EGvWBXr4Nt0rs8TPantMVfyQUUUV1njhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABUV2gltpY2AIZCpB9xUtIwBBFAJ2PneK1EMslwpGduMY4rl/D10HE8XAaKVwwHY7j/jXc+K7MaNqNxZ3zeSAxaJjwJEzwR6//Wrg9PSJby5mjHySuSvI55PpXmxVnJM+qq1OdRkndHSQThRyTUpvwq5PSscz/KQevrVDUbiXyiqMRnoK5ZRuzWBPrutFlMMB+Y8Y9axpUvYLOaS2dkuXQjzMdDSQeUk2ZGy/JNUNU1l5pDZ2oLynJwvoOK3p0gniEtEYGhar4l0fUBcX+sveWzEh4powrJ7qw7exrupPHlxaadcPFCbiUR5hRG++3bPoO9ef2fhnxNfeIisyMtvIOme34966O08J31nqVxDBCyxsmM46MPT1rWvCF0KlVbi7ovfDTxL8Q77X5RqcVs1mw3HbEY/K9snrW9qk02ka4bpSfIuHLOOwYnNTeFzqGnQiG8HOcEkVd1o2moQSQyAKf4DXHUSctFY1hWS3NzRtUSZFIbP0rdW5VlznA7V5bpz3OmzCFizKfut2rsbS6MkI5IyPWsJLlY5RUtUXdbEVxCyOFZQQ2D6g8VhaDpLf2nNr9woYO5SADr8vGTVvUbhYrVmzjaO9aPhBPtPh2ykdOpLYzwBnrVtPkIjPkloeg/C6wMNhdX0gzLPLtz7D/wCuf0rsqy/C0It9CtUAxlNx+pOa1K9ujDkgkfK4qo6laUvMKKKK1MAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAp6lpthqUPk6hZW91GOizRhgPzrwf4s6PBoXi4xWNusFrNAssapwE6ggD6jP419CV5h+0LpE1x4Xj1u1iEsmnE+cvrE3BP4HB+maiceZWOjDVXCau9DxmC6jdxErFyBkk1LJGHRpMgFRXNaXIyyGR8IzLkkNkYrYmut0QjTOCOTXnVKbjLQ+ihO6OS1i+1D7TcJY2jzv9xcdAe5rN01vHFuv+jeH7eKVjkTyTg4Hrjrmu7t/KhXeu0Nnmo7rUEBPlnHHPpWqrWVrCjSV7nLQ6f8SJpftH2+yaQEFVWUjBH4YrdhufidMghe0i8xON6zKN341kah4k1Cy3SR27SoucHPBqXw/4x1i98uVbCTys8kNRJya5uVWPRp1KKXK1qasfirxlpZWDX/DFzcQE8yQASN9fl61DH4vtrrVxB9i1C25xm4hZB+tdvo1/JPDvdNuexOTVjULS2vEDSou5Rwcc1ze1hf4TmrJSfu6GZoo/tC3k8xCFRvkJrYhzCmG5A7VS0opbZhxhTzml1G7SIsXbC9Bz3rmkuaWgL3Y2E1aSWW2dI4fOkckRw45c44H416R4M0jULq3gthpd1YwqqiWS5QqQO4APU1l/B/RzqXib+1pFDWunp8h7NMw4/IZP4ivaBXp0cMnFOR42KxzhJwihsSLGiogwqgAD0FPoFFdx44UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABUdxDFPBJBMiyRSKUdWGQykYINSUhPFAHyV8WPC//CEeLXtUZnsLpfPtHK52KSQUPuMfiK56K9jljykgyBzg/wBK9d/aRSx1bVILJZlkkt7fbJ5bjdE5bIBx0OOcHtXzHqL3mm6g0UQ8uYFtykcP7j19an2Uart1PYo1JRpqTPSbLzblgMjB4zjrW1F4bt7lSr3bRk9dteT6R4yNo6rM5Yjkg8Y+ntW1cePo7WSN/MO0rng+vY1z1MHVT0R0wxcO53X/AArzRLlT9p1O/Ye0+0D8MVp6b8PdJtVC2Oo3UOOB84YfkRXm03xOtYbQb5fmQZAPt3rQ8OfE2K7kLecqAfdyc4rmnhsQlqtDpjiabej1PT4/D09imFuBMnuMVBcRyRZD5ArnIviPbySJEkyuP4wvAPtUOveOrBLdnRgWPC8/eOK5/YVL7DdaPVm7NIkKl+BistfO1bUYNOtk8ye5lWNFHXcTjPsK5mHWL2+j3fcibox/i/PpXofwd0x18TWOpXIwTcJ5YbrjP3j9a2p0VB+8ZVarcG4n0D4P0G08N6BbaTacrEuXc9ZHPLMfqa16QUteoj5ptt3YUUUUxBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUABrwb9q/4wzeA9F/sLw9cLHrt3FvkmHJtYj0I/wBs9vQc+le5ahdQ2NjPeXLhIII2kkY/wqoyT+Qr82fj14guvE3izVtZnOTcymQKTnYg4VR9FwK9LLcIq0pTktIo569Tlagt2dp8BL671Hwlql/fTyzz3OqO7ySMWZzsTJJPU1d8f6GNQtcxs6SAbkdDgq3+FUfgAnl/D6FcfM88kp98nH9K7q8iEsWCCfTnpXh4iq44lyR9Rhqa9gos+dNZinin+zXatuQ8SH5Sfb/PWsh01CVtiTBox03Nn8q9h8a6Csk3nq5USYGeOvoc157qmi3sEzuiAbSDlRjI9/8A61exRxcZxujzquGcZeRzT2V6Rhzn6HNJtvrcBVZwoXsa0rlbyEgYGM4O2nfYryZfNkXaMYHv7frWzq9yPZL7O5W0yXU3chJiu/GWzz1/+tXeaBBbwlJ7qWSaUghSx+Un2FZuheHbl3XAbPUPwF/H2r1HwZ4FmkmjuL2ZmjzuAI5Y+564rz8XiYRW51YfDzb1LfhHRZdRminuI5FiQgqsgyDXpt9Lc6b4dvruycxXVvaySwuvVXVSyn8xSaZYR2yKiLgDpWhdqn2C4WT7piYN+IIr5x4jnqJnrukowaNz9m/4x2vxL0FbfUBFb6/bxBpo14WdP+eijt7r2+lewCvzP+B+vXnhXxbb6hZuyyWU5YYPDqrEFfoRkH61+kmi6hb6ppNpqVq26G6hWZD7MM19ZjMN7JRqR2kfGU6l5ypvdFyiiiuI2CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiig9KACikzxXE+P/if4V8Ho8V5erdX6jiztyGkz/tdl/H8qunTnVlywV2ROcYK8mY/7SOvx6T8OrmwWT/SdRIiVAeSgILn6YwPxr4P8Wqs1wQ+4bs5z+Ve3/EfxnfeOtQfU7uIQRFAkEIORGg579SScmvIPEtpvnDMd3zA+2a+1y3BPD4dwlu9zxa2JjOupLY6/wCC83k+HYbcH/V/L+VelRBXTcB16ivGPhZeNbajNYzDZk70U89a9gspgQoB5r4DNaDo4iSZ93gKqqUYtFHW7YSQsjorAcgHpmuHvdMYykqSqY4AHKn6+ntXptzHvTB/OsG7sFZyCoYGuKjWcdDrnBSPPz4djmfc+FG7O4NjFdNpXhqFbcRmGJtzAj5quP4c+0TeYjyRk9lNdXoeiiJFMmZMcAtzVVsU7blRoLcj8OaAkSIrKsijIBz+fNdtaW8cSKiKBgYGB0qGzt9qBQMKOcDpWjHtVfpXmVarnubxgo7Aq4ArF8b6itnoVyQwUlCOvtWvNKE5zXlnxg1UjQrr5j9wqvPrTw0HOokRWnyxbPB/CbMt956jAkkdv/HzX3r+zVry6p8PYdNlf/SdOJQqepjYkqfp1H4V8L6JF5EtvEhJ2qMnGM17Z8OvEOqeF7mHVtNfbKke1opB8kq91b2Pt0r9VxGBdbBKC3Wx+byxPJinN7M+zhS1wHwr+KGi+OYTbiNtN1eJczWMzAn3KN0cfTkV3wNfI1KU6UuWasz1oTjNXixaKKKgsKKKKACiiigAooooAKKKKACiiigAooooAKKKM0AFHejNZ2v61pWhWLX2rX8FnAv8UjYJ9gOpPsKcYuTshNpK7NGsTxZ4p0HwvYm71vUYrVcEqhOZH/3VHJrxT4h/tBiNZLTwraeWCMfbLn73sUTn9fyrwHXta1XXb2a71S9uJZZTl5JX3O3sP7v+ele9gsgrVbSre6vxPNr5lCGkNT1L4ofHbW/EDy6d4ZkfSNOyUeUH9849yOn0U8dz2rxTVI5bhnk+2zzOwywZsZ/HrUssaLhASwHQZ6VVHni6TYv7tnUNn3PWvqqGDpYWPLTjY8idadWXNJnSQti38vpwQBn8KwNX/vO8SHGVLsOf6Vp38/2SxlmyHVVO0joxJrxLxHrFzqOoyv57mINhecA44z+OOlc2MxkMKrtXbNsLhpYh6OyR6Xpsn2W8gukKkhsAqfpkV7BoMonhSQkHgGvnvwFrVvJYtp96nzxZKuO4Pr75r2rwjfQiBIWlAZTjmvlc+oLE044mkr9z6jJa/sZSw9R27Hf20XmQEqOay9Rt2QNj5G6jjg1saY6mML7ZqTULfevGRXxXM4ysz6laq5j6dP8AKBIqhh1rorGQELgDBrnxbyRPjaCM1t6WCFXd+hrKp3NUzcjGVGOv0odgoOcCiJlx0H51W1CQpwoNYLUq5S1O42qQD2Oa8W+LdyZovJGTubGM4zXqmtSMkDO34k14n4y1G2udVZpJdsUeTzj5sdevb3r38kwcq1dWWi3Z5WZ4qNGk293scu2p2Wm3UJvJAjNhh8vyn3Fel+Gb+11GwWW0mR41OAF7HGcY7V4F441pdZ1CJLfH2S0Ty4cfxHqzfif5VvfBvxB/ZmvLZ3EmLe6HlMG6Z/hP4H9Ca+9pZmpVnS+z0Z8RUwT9l7V79T2JkaDUZJbeaS2mIEscsTFXSQddp7V6p8Ovjvq+mBLTxXGdWsgcfaoBieMZ7r/EAPfNeXXkf79JGBBBIBzwc4/wqrIyidomTBPKsO/uBXfXwVLEx5Zq5xUq06WsWfb3hbxNonifT/t2h6jDeQ5wwU4ZD6Mp5B+tbGa+EfDXiTVvDOspqGmXcltKOEkjPB56MDwyn0/lX0D4J+PmkXJjs/Ftq2mT4A+2QqXtnPqR95PxzXy+NyerRd6fvL8T16GNhNWloz20UVW06+s9QtI7uxuobq3kGUlicMrfiKs5rx7W3O1O4UUUUDCiiigAooooAKKKKACiio7iaK3geaeVIoo1LO7thVA6kk9qAHk1geKvGPhzwzCX1jVYIHxkQg7pG+ijmvGPi38Z7ua4l0nwdP5duFKyXoHzuefuf3Rx16n27+F3tzLcTmS7le5nfks8hbn19z7mvoMDkM6yU6rsu3U8nE5nGm3Gmrs9t8cftC3MpktfCth5CZ2/aZgHk/Bei/jmvFPEOt6zr1817rOpXFxK2Dh5Mke2ew9hVdgMYWPGOgwRioXGUwE57E4zX1OFy7D4Vfu469+p41XFVaz95kRijQMY1Kk8kg8n8aYVO84JUE54HNLIxQEEsOR15z74qFGCkKxYEdO/+e1dhkri3AbYME9e/wBfaoYYmlu4xgEA7myp44qWdWKgLJ8v+c9Kp3er2+mWzMkXmzuM7m4AHOMevSonJJXZpFN6IpfEu/W00tLRH/euuSB27D+v04ryZbfeflIH1rpfEE93qt600nz56ALwKoQ2TIQzdM/3a+dxdJ4ipdrQ+gwiVGnbqZLQzW7BvmU9mBrpNA8U6jZ4jNwSMgkFc7sevf8AKhbdJIwjqAD3PSqtzpLp88Ku643EEcgVlTw86DvTehrKpTq6S3PSPBnxTu9MvbYXcM0lpuxccgjHqv8AntX0d4evtM8RaXHe6XcpPEy84PzL7EdjXw4j3CnavIJwM10HhPxZ4g8Lagl5pc8kDIclQco3sRXk5lldPGe/H3Zemh6OCxs8L7r1ifY81gytytLFAyH5R+Fed/DT456V4guY9M8SWyaZdOQqXAP7pjnGGH8P1/lXsD26dgCDzmvi8Vha2Fly1VY+mw+Ip1480GVIlCxkselVJwW3Meg6VptECMHgDmvK/ib4xjkt59I0eRfKYFZ7ndhSO6qfTsTV5fgKuMqqFNevkZ4zFU8NTc5s5L4p+OnmuZNN0hGltYiVlnTo79/+ADnp1NeI+ItUuby0S33SCMnMjs3MnoMDoBXUau7NDJZW2H3sDLIpyNg6AVljS2kXaFLAno3U/wCeK/RqWXxw9L2NL5vufE1Ma69T2tT5HDlD/dpYhJFIHTIYHiu9tvDYP3kjJHOO9WV8LRyAhY2XIzkAkCs1lcr3uU8dDY6H4feMTc6UlprBdXjO1bk8gD0b09j+ddVKIflk80MOoZWyGBzyO3rXH+H9FOmuGgcMrcFX7n/P+ea6aGGKNQsVssaL/AgIHNe9h+eMbSPErcjm3HYdewiQY2/Lt65Bx+Rp9lKJIxbTyHaOVbAylKjAMAIyCD2GRjt/n/61QGNfNDEgPnI3A4/zwP8AOK6bGClZnReEPFfiHwnqDSaRqFzZljufkNFL7sh+U9vf3717z4E+Othe7LbxVZrp8nQXluS8Le7L95P1HvXzas0ckYSQgEjgYxn6f5/+sil0YbXz6gda4cVllDFK8lr3OmnjJ0dnofedheWl/apd2VzFc28gykkThlI+oqzXxh4A8d6z4R1IXOmyF4WI861d/wB3MPcevv1FfU/gHxro3jDTRc6dLsnUfvrVz+8jP07j3r5LH5XVwjvvHuezhsZCurdTqKKBRXmnYFFFFABSdKWqer6haaVplzqN9MIba2jMkjnsBTSbdkJtJXZX8S67pnh3SpNT1a6W3t4+56seyqO5r5c+K/xT1bxbctZW7NZaSp+W2V+ZB6yEdT7dB+tY/wAVPHt/4z1uW5mZ47GPK2luDgRr6n/aPeuJlkD7QRkE9B34r7XKsljRSq1VeX5HzmNzCVV8kNET27RlpQxHIU9T15qKRwBtz8owBx2otZB9oaNgS3y4GOR9aWYDzM7wFA5xxivoEeY99Bi4KEAyH1560A/xbAuOfvZpsYLtuyTmhwSwGCvsKGwW4x+u4gMBx0BqB0BLAgHHQnAFWZOV5YbR6rwKbL95dsjdMnGcZ7VFjRabFRlBGN6MOnJ4qjNbK4Z2G7j5jjI9hWpLHEH2D5scDHX6DNRtDuwCrIAMffz/APrNZS10NoS5TBltbZ2+RATjAAXGf85pgtY8bTAoOMcL1rc8iMnjgL3kOfXj/PvTRBwWYKxP/wBesfZm3tHY50WAIbZGo9Oo59KjW1lt8SRKWKnIUD/Pv2rpIrXcm1HUg8nbz+P5U17WNMsEzn75ySM5/wDrf54NZypXNFWscy2nW2rKAyLa3PQfKcH6/wCe/wCcEWiyqTBcqI2j5I7EdiD3Fbd9Zs6l4vkcclc5ycf5/wA9GxaiYglvqEI2KdqSg5I+v+f/AK0Kmupr7WVvdZz13pcUaF0lTOc/X3r3z4DfEWGfTJPD2vXQhms0LW0szY3RAZK8+g5H4+leXSW9pLGJo3iYEY4IPt07/wCfqYY7EWabsMC+Q8xXGO4HtwRx7iuHMsrp4ulyT07M7MFmVTDT5o6+R6H8WPiybtW0rw5u+zZIlnJx5nsPb+f6V5ZHJqd3bNNqGWEh2xc447/L/nrUsOmpdaoIiWVFBkkxxwvOM1ssjXBS4aNiSo8tQAQq/wB3Prj9T+awWXQwkOSnovzIxeOqYmXNPUzbKzMSZcH+6Bgc+2P8/wCOnb2m0qSAOO+MCpCdy/JlB6Y6dMfy/wA9mqrlfL2nCjgLGcnOBkZ/DivSjFRPPbbJIoC7ny3QEfLx1I9vbv8A55vQOu4JFhf4Sf8A9f8An+tEIjqgMhGCSCeCec/yP+ec24YIhGMwFO5Gevp/+uqRDZbhKgDdgFu6/wBeD7VMvTH8YBPy9B/hVVFGQi8KOwGP8/59qlc7FcRyA+yufrzWiI1voSBwUx82RjIHOOR+tDFljGGYd8khgahJITJI3EYK7DkDp0/KniWdpGJaMADOWyOKu5DVhhCtgKue33QcfT8aexIjJfcQQMBlwPr1piqVODIH5x3XgU3zASR5ZYn+IMSfoKqLsZyVyWHCHeR8p7Ef59DW1pep3+lXceoaZdS2t3G37uSMkEev4cf57YGGACqCRnIIPQe4/wA/4X2kCoqq23kDJHK8f5/z0JpTVnsVG8VdH1D8KPi3ZeIDDpGuyRWuqkBY5QcRXB9v7re3Q9vSvVga+DbeUrIzA7iDkkNjn2r6X+A/xEbXbVfD+rzFtQhTNvM/WdB2Pqw9e4+hr5DNcpVBe1pbdV2PbwOPdR8lTc9bopAc0tfPnqhXz/8AtVeMHjWDwjZSY4Fxe4P/AHwh/wDQv++a97uJY4IJJ5WCxxqXdj2AGSa+F/iHrcviPxdqOsOc/ap2ZOfup0UfgAK9vIsL7bEc72j+Z5uZVuSlyrdnPtNuyC249PakSYkMoDADPtiq4dQgOFJAwcjqKeBulA34Occnn2r7lNnz7jYfbyYuWLEYC53Y9PWp2LK2crnOPf8Az/n2qoDsnjckowfGMDjippD8+75zn5hu7+/8/wDPNO5LJN2W5ODnHJwaTepXAaPI6A00xow4dTzjOM1I8CoCC3UfKwbnP+f8+kscUhrzHdgsCQMHvUMl0STlNgH93/8AVUkUe0fOp+71Kk7v/rU8RKYQPmC5HBA/z6VOrK0REsrHBZNyseTtBJpRvYElc4Jzk4OfXFP27X4OAQTwcYx0pkYBfYyhhnjP3en/AOqp1KsmRqqoRgMcHruBAHGRj/PUe1P2lYmKrswPmw2B7fT/AD+MoTAaMBd2T0AGSf8AP6/WklhOf3ihjkghjwT3Hv8A598TYu+hGjlos7emTndz9T/kf4PMm7gryBgd8Dt+H+e/ETx+XJu8lcsOQuP5/jUknzL8wc7/ALwJzgen65/zyJ6Ba5AViYk7TtHHGcfSqt3bWTht6B1PsBnr+VXXLqm3jBBHzHPft/n/AOvUmJjU4ZVYjHIGaVvIaMW1063Or24giKtJKM5PGB+PtWnq01zJcDRruyRfJupruO6C8yLJnCbu+PTtto0JGPiKPcDtjgJJz1PA/wA/5FdFqEEU6MuEYZ3Lk4KnHX+dYVMNGq4v+V3OmGJlSut7qxy+m20q3tw4EYQwtuBIzkDjHrWgqsQQ2EGMkk8f5/z3Oa9pEseqqpG/cpX5c9SD2FaUbSDlpAVI53Hhj17nr/n1q5QVzLnZHHGmFfKdOvl/KD9fy/zyFEa5Jz6heeAP8+388VJIf3iGQpFkHvkYz+vT/PZY1iywL+XnowB9cdD14P8AnPL0BtiRwAvtEoVt3OeR+tSKjF8+a8gOeDxjFNh/1jASLKWwOM547ng/5H1qYhcZJQMTkY4xjtQSxItxc5bnGACvT2qRiApwC2Dxhjx700lCUcArtXGPX/IqVFkk+VS2Cx+83UDPJ/z/AFpkIYpLKd0shOOORz/n/PsxZJPMIdlDDHIGD+dTETPIFJI2jOQOgx7H3pgL7slmKgZ5x/n/APV9KYhrCbfhkcqTngde/FRyMJMhgwUY3AN/n/P4VLKNpA3AbSMHPC+vbr/hUDyq8XzqS5IOQo289v0J49fwovYdrghXzMMflAPAbPOOP1/z6zu+duFHyrk4788VVjBYiXJBzgAjI6f5/wDr81LKz+Ywf5jnDbedx4NFxvQuW8g2bd8e7qe+T/TtWz4d1G40zU7a9t5NlzasJo2GcqwPB+n9DXOwYQsSwGeu09MdOf8ACr1nKpG8dMnIzkmpnHmi4shO0ro+4/CesQa/4dsdYt8BLqEOV/ut0ZfwORWrXjP7MOuvc6TqGgzuWe2cXEWT/C3DD8CB/wB9V7NX59iqPsK0odj6mhU9pTUjhfjrrR0T4aanKjbZrpRax89d/X/x0NXxNfufPzlMsOnQYr6m/a1kdfDWixKxCPdSMw9SE4P6mvkzJaVgxJGc8mvrOHqajhnLuzxsxfNW5exPGy72CbeDyD0FV1cxzJvB2sO/PNST/u2kKfKVUYqN1DXqZyd0eTzXvXODl3Rdu2c2/mKw+XDH19fT0qV5d4willIznBFMuf8AjyZu5iOTUMrMI1wx6D+QqpIxirovo7gHaFTptxjAH4U5MZG+VR3OSRj6/wCf8KbaIsto5cZIYLnOON2KdsTy5Rt6DIz24b/ClcdiTYC23JJznIz0Pv3/AM/gpwyEDI78nI6Dv/n/ABRyRdyICdoXIBOewP8AWpTFGsTSBRuABBPP97/D/OaaEyFY14dEVGyegAH+f8/RCxLEoqnHUng+/wDP/Pd1yxQfJgcE9O/H+NI5+Ungk5PT61LLWogZghyUX+6AMc/5/wA8Zo2OxxiMnOWycFeP/rUqkm+SE42E9AMf3f8AGopWKyRMpwcsPwAT/E/5AqLGiD7oKxoVPdv8/wCefzYqbmKp864/vDr9D/n9MyNNJHYnY2Pl9B3xUExJm55JTJPf+KmkTe7sIzOQcEAgHknP4H86pXIUj5nViTk5Bz+fpVqZmWOTB/icZPJ434/kP8k1TvWZUyCc7gP/AEL/AAFSapE3hl2/ty6bj5YsDP19fw//AFduhVuGDPu2nJJX39cdP8/TnfDbMNRvWDHIZR17ZNdCHcrINxwF4HapRL0ZlRlZNRTCEqTgsAMn0HA/mKWJWLBmkIVR91sY+v8An0/GohI5uZXJBaMDbkDjINKfkaALwGVSfc5py1Ena5L+6Zmiy7ZPyrg8e2P8/SnBNwckuyk5DdWxj/Pf/wCutuqvuZgCcA+3T0qEyP5rKHYAE4AOO4/xNSjTcmMhQlBtwABzn/I/z6cSQMFjwFJyuNvPH+f89sQRgFkYgZY8n/vn/E1ZiRXHzKD8q/qAT/OqVjOXYCoc+XEeCO55/wA9P89F8tWY75gGGeMn+nf/AD2pwjRI1KKAcuPy3f8AxIpqqrDewyTIQfpkUnuNaEgBkAVnUqDwM4Yfj3oZXYEF8gHBI6kfX+n/AOupgoZckckc/nUV78sSsvBJOcf7pNITetiswbJRUZh0OVBz9ajkV5H3IiptJIO7I59v8/h3ZPK4jkAb7qlhx0OAatzqEDuuQwYqDntxSKtZFQ/LIiFlIIPy7Sw6/T6/56LsCwsQSzHkk8lvpSX52xz7cDZGduB0+QmpZQE0Yuv3tvU80EyGQtngOuOMlRnPrirsW0EBU4PAHcCqUJyQvGAwHT/Oat6b+8SR3+Yjpn64obMz1X4CapJpnxA04bgsN2WtpAXyTuHyg/8AAgv519VV8U+EZZLXX9OeBtjpfQhW6kfvFr7Wr4/PYpVlLuj38tl+6sf/2Q==" alt="Portrait of Krishnendu Samanta"></div>
+    <div class="hero-text">
+      <h1>Krishnendu Samanta</h1>
+      <p class="role">PhD in Physics (Optics) — Biomedical Optical Instrumentation</p>
+      <div class="hero-links">
+        <a href="mailto:ksphy93@mail.com">ksphy93@mail.com</a>
+        <a href="https://linkedin.com/in/ksphy93">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-9657-6519">ORCID</a>
+        <a href="https://researchgate.net/profile/Krishnendu-Samanta">ResearchGate</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabbar">
+  <div class="wrap tabbar-inner" role="tablist" aria-label="CV sections">
+    <button class="tab-btn active" data-tab="about" role="tab" aria-selected="true">About</button>
+    <button class="tab-btn" data-tab="experience" role="tab" aria-selected="false">Experience</button>
+    <button class="tab-btn" data-tab="education" role="tab" aria-selected="false">Education</button>
+    <button class="tab-btn" data-tab="competence" role="tab" aria-selected="false">Competence</button>
+    <button class="tab-btn" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+    <button class="tab-btn" data-tab="conferences" role="tab" aria-selected="false">Conferences</button>
+    <button class="tab-btn" data-tab="awards" role="tab" aria-selected="false">Awards</button>
+    <button class="tab-btn" data-tab="extracurricular" role="tab" aria-selected="false">Extracurricular</button>
+    <button class="tab-btn" data-tab="references" role="tab" aria-selected="false">References</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="about" class="active">
+    <h2>About</h2>
+    <p class="lede">Krishnendu is a postdoctoral researcher in the Department of Biomedical Engineering at Pennsylvania State University, working on optical imaging techniques for biomedical studies. He completed his PhD in Physics at IIT Delhi in 2022, with a visiting research stint in the Optical Nanoscopy group at UiT–The Arctic University of Norway.</p>
+    <p>His work spans both simulation-based analysis and hands-on experimental development, centered on super-resolution microscopy, digital holographic microscopy, photoacoustic microscopy with metalenses, and miniature microscopes for preclinical studies. He contributed to the development of transmission structured illumination microscopy and acousto-optical elastography using a transparent ultrasound transducer, work that led to two international patent filings. In his postdoctoral research, he has extended these techniques toward plasmonic detection of cancer exosomes and holography-based optical elastography, alongside work in photo-lithography, laser speckle contrast imaging, and intrinsic optical sensing.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="when">2024 — Present</div>
+      <div class="what">
+        <strong>Postdoctoral Fellow</strong>
+        <span class="org">Pennsylvania State University, PA, USA — Dept. of Biomedical Engineering</span>
+        <span class="detail">Advisor: Prof. Sri-Rajasekhar Kothapalli</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2023 — 2024</div>
+      <div class="what">
+        <strong>Postdoctoral Fellow</strong>
+        <span class="org">University of Houston, TX, USA — Dept. of Electrical and Computer Engineering</span>
+        <span class="detail">Advisor: Prof. Wei-Chuan Shih</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2022 — 2023</div>
+      <div class="what">
+        <strong>Research Associate</strong>
+        <span class="org">IIT Delhi, New Delhi, India</span>
+        <span class="detail">Applied optics and photonics research</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2018</div>
+      <div class="what">
+        <strong>Visiting Scholar</strong>
+        <span class="org">UiT — The Arctic University of Norway, Tromsø — Optical Nanoscopy Group</span>
+        <span class="detail">Advisors: Prof. Balpreet Singh Ahluwalia and Prof. Krishna Agarwal</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2017 — 2018</div>
+      <div class="what">
+        <strong>Teaching Assistant</strong>
+        <span class="org">IIT Delhi, India</span>
+        <span class="detail">Laboratories for Advanced and General Optics (M.Tech / B.Tech)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="when">2016 — 2022</div>
+      <div class="what">
+        <strong>PhD, Physics</strong>
+        <span class="org">Indian Institute of Technology Delhi, India</span>
+        <span class="detail">Thesis: Tailoring Excitation Strategies for Structured Illumination Microscopy — Advisor: Prof. Joby Joseph</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2014 — 2016</div>
+      <div class="what">
+        <strong>MSc, Physics</strong>
+        <span class="org">Indian Institute of Technology Kharagpur, India</span>
+        <span class="detail">GPA 9.14 — Advisor: Prof. Sayan Kar</span>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2011 — 2014</div>
+      <div class="what">
+        <strong>BSc, Physics</strong>
+        <span class="org">Jadavpur University, Kolkata, India</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="competence">
+    <h2>Competence</h2>
+    <div class="grid2">
+      <div><div class="k">Programming</div><div class="v">C, C++, MATLAB, Mathematica, FDTD</div></div>
+      <div><div class="k">Software</div><div class="v">Lumerical FDTD, Origin, FIJI (ImageJ), MATLAB</div></div>
+      <div><div class="k">Design</div><div class="v">Blender, AutoCAD (123D), Google SketchUp, Inkscape</div></div>
+      <div><div class="k">Development</div><div class="v">Custom microscopes, compact SIM systems</div></div>
+      <div><div class="k">Miscellaneous</div><div class="v">LaTeX, Microsoft Office, 3D structure design / printing</div></div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="pub-group">
+      <h3>Journal Publications</h3>
+      <ol class="pubs">
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, M. Lee, S. Mirg, Z. Zhou, S. P. Patil, A. Majumdar, J. E. Froch, S. R. Kothapalli. "Metalens combined transparent ultrasound transducer for extended depth-of-focus miniscale photoacoustic microscopy." <span class="venue">Manuscript submitted</span>, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">S. Mirg, P. Gaddale, A. Kumar, <span class="authors self">K. Samanta</span>, B. Saini, S. P. Patil, A. A. Vargas, A. Laliwala, A. A. Exner, Y. Wang, G. O. Sipe, S. R. Kothapalli. "Simultaneous Functional Ultrasound, Intrinsic Optical Signal and Widefield Calcium Neuroimaging." <span class="venue">bioRxiv, manuscript submitted</span>, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">S. Sharma, L. Zimianitis, <span class="authors self">K. Samanta</span>, B. S. Ahluwalia, J. Joseph, D. N. Wadduwage. "Untrained Position-Encoded Multilayer Perceptron Network for Structured Illumination Microscopy Reconstruction." <span class="venue">Chemical and Biomedical Imaging</span>, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">S. Mirg, <span class="authors self">K. Samanta</span>, H. Chen, J. Jiang, K. L. Turner, F. Salehi, K. M. Ramiah, P. J. Drew, S. R. Kothapalli. "Integrated Ultrasound Neuromodulation and Optical Neuroimaging in Awake Mice using a Transparent Ultrasound Transducer Cranial Window." <span class="venue">npj Acoustics</span> 2(1), 1, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">A. Tiwari, <span class="authors self">K. Samanta</span>, S. Devinder, B. S. Ahluwalia, J. Joseph. "Co-linear Hexa-Mirror-Based Multi-Periodic Structured Illumination Microscopy." <span class="venue">Nano Letters</span> 25(6), 2133–2140, <span class="year">2025</span>.</div></li>
+        <li><div class="cite">S. Pandey, <span class="authors self">K. Samanta</span>, J. Ahuja, S. Joseph, J. Joseph. "Designing a square periodic racemic helix photonic metamaterial using phase-controlled interference lithography for tailored chiral response." <span class="venue">Optics and Laser Technology</span> 172, 110489, <span class="year">2024</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, A. Tiwari, P. T. Samsheerali, J. Joseph. "Improving resolution in two orthogonal orientations from a single-shot digital holographic microscopy." <span class="venue">Results in Optics</span> 14, 100586, <span class="year">2024</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, A. Ahmad, J. C. Tinguely, B. S. Ahluwalia, J. Joseph. "Transmission structured illumination microscopy with tunable frequency illumination using tilt mirror assembly." <span class="venue">Scientific Reports</span> 13, 1453, <span class="year">2023</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, A. Tiwari, S. Joseph, J. Joseph. "Saturable absorption assisted nonlinear structured illumination microscopy." <span class="venue">Optics Letters</span> 47(11), 2702–2705, <span class="year">2022</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, J. Joseph. "An overview of structured illumination microscopy: recent advances and perspectives." <span class="venue">Journal of Optics</span> 23(12), 123002, <span class="year">2021</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, J. Joseph. "Image reconstruction approach for high space-bandwidth product structured illumination microscopy system." <span class="venue">Journal of the Optical Society of America A</span> 38(11), 1633–1641, <span class="year">2021</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, S. Sarkar, S. Acuña, J. Joseph, B. S. Ahluwalia, K. Agarwal. "Blind super-resolution approach for exploiting illumination variety in optical-lattice illumination microscopy." <span class="venue">ACS Photonics</span> 8(9), 2626–2634, <span class="year">2021</span>.</div></li>
+        <li><div class="cite">S. Sarkar, <span class="authors self">K. Samanta</span>, J. Joseph. "Study of polarization effects in phase-controlled multi-beam interference lithography towards the realization of sub-micron photonic structures." <span class="venue">Journal of Optics</span> 22(8), 085105, <span class="year">2020</span>.</div></li>
+        <li><div class="cite">S. Sarkar, <span class="authors self">K. Samanta</span>, J. Joseph. "Method for single-shot fabrication of chiral woodpile photonic structures using phase-controlled interference lithography." <span class="venue">Optics Express</span> 28(3), 4347–4361, <span class="year">2020</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, J. Joseph, B. S. Ahluwalia, K. Agarwal. "Study of electric fields of diffraction from spatial light modulator." <span class="venue">Journal of the Optical Society of America A</span> 36(10), 1778–1786, <span class="year">2019</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, J. Joseph. "Double-helix array structure using phase controlled interference of 6+6 beams." <span class="venue">Optics and Lasers in Engineering</span> 113, 23–28, <span class="year">2019</span>.</div></li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3>Conference Proceedings</h3>
+      <ol class="pubs">
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, S. Mirg, A. Abbasi, Y. Mansour, K. M. Ramiah, J. Jiang, E. W. Gomez, S. R. Kothapalli. "A novel optical elastography platform integrating transparent ultrasound transducer and structured illumination microscopy." <span class="venue">SPIE Photonics West</span>, 13853, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">M. Mitra, S. Agrawal, <span class="authors self">K. Samanta</span>, M. W. Urban, S. R. Kothapalli. "Multiparametric transrectal ultrasound and photoacoustic imaging system for prostate cancer diagnosis." <span class="venue">SPIE Photonics West</span>, 13851, <span class="year">2026</span>.</div></li>
+        <li><div class="cite">A. Tiwari, <span class="authors self">K. Samanta</span>, S. Devinder, B. S. Ahluwalia, J. Joseph. "Multi-Periodic Structured Illumination Microscopy based on Co-linear Hexa Mirror geometry." <span class="venue">ICMOCE (IEEE)</span>, 1–4, <span class="year">2025</span>.</div></li>
+        <li><div class="cite">A. Tiwari, <span class="authors self">K. Samanta</span>, J. Joseph. "Nonlinear structured illumination microscopy by employing saturable absorbing material." <span class="venue">Frontiers in Optics (Optica)</span>, JTu4B.53, <span class="year">2022</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span> et al. "Designing a Hexagonal Array of Gradient Pitch Helix Structure using Multiple Beam Interference for Broadband Light Trapping." <span class="venue">5th IEEE-ICEE</span>, <span class="year">2021</span>.</div></li>
+        <li><div class="cite">S. Sarkar, <span class="authors self">K. Samanta</span>, J. Joseph. "Designing Submicron Chiral Structure Through Phase Engineered Multi-Beam Interference." <span class="venue">ICOL-2019, Springer</span>, 23–26, <span class="year">2021</span>.</div></li>
+        <li><div class="cite"><span class="authors self">K. Samanta</span>, S. Sarkar, J. Joseph. "Resolution Enhancement in Multi-Periodic Pattern Illumination Microscopy." <span class="venue">Frontiers in Optics (OSA)</span>, FTu8B.7, <span class="year">2020</span>.</div></li>
+        <li><div class="cite">S. Sarkar, <span class="authors self">K. Samanta</span>, J. Joseph. "Sub-micron array of split-ring resonators through polarization incorporated phase-controlled interference lithography." <span class="venue">Frontiers in Optics (OSA)</span>, FM2A-7, <span class="year">2020</span>.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="conferences">
+    <h2>Conferences Attended</h2>
+    <ul class="plain">
+      <li><span>SPIE Photonics West, San Francisco, USA — Poster</span><span class="yr">2026</span></li>
+      <li><span>Big10 Neuroscience Conference, Pennsylvania, USA — Poster</span><span class="yr">2025</span></li>
+      <li><span>COPaQ-2022, IIT Roorkee, India — Oral</span><span class="yr">2022</span></li>
+      <li><span>5th IEEE-ICEE, IIT Delhi, India — Poster</span><span class="yr">2020</span></li>
+      <li><span>4th Departmental Symposium on Advances in Physics, IIT Delhi — Oral</span><span class="yr">2020</span></li>
+      <li><span>Frontiers in Optics &amp; Laser Science (Optica) — Oral</span><span class="yr">2020</span></li>
+      <li><span>3rd Departmental Symposium on Advances in Physics, IIT Delhi — Poster</span><span class="yr">2019</span></li>
+      <li><span>ICOL-2019, IRDE Dehradun, India — Poster</span><span class="yr">2019</span></li>
+      <li><span>International Conference on Fibre Optics and Photonics, IIT Delhi</span><span class="yr">2018</span></li>
+      <li><span>Workshop on Optics and Photonics, IIT Delhi</span><span class="yr">2017</span></li>
+    </ul>
+  </section>
+
+  <section id="awards">
+    <h2>Awards &amp; Fellowships</h2>
+    <ul class="plain">
+      <li><span>Penn State Cancer Institute Travel Award, PSU, US</span><span class="yr">2025</span></li>
+      <li><span>Junior + Senior Research Fellowship, UGC, India</span><span class="yr">2016–2021</span></li>
+      <li><span>NET-JRF Research Fellowship, Govt. of India</span><span class="yr">2015</span></li>
+      <li><span>INSPIRE Scholarship, Dept. of Science &amp; Technology, India</span><span class="yr">2011–2016</span></li>
+    </ul>
+  </section>
+
+  <section id="extracurricular">
+    <h2>Extracurricular Activity</h2>
+    <ul class="plain">
+      <li><span>SPIE Member, Early Career Researcher — SPIE, Penn State University</span><span class="yr">2025–Present</span></li>
+      <li><span>Active member, IIT Delhi Student Chapter (Optica), Customer ID 1504320</span><span class="yr">2016–2020</span></li>
+      <li><span>Participant, Physics Society activity, IIT Delhi, India</span><span class="yr">2016–2020</span></li>
+      <li><span>Volunteer, Joyisyou (formerly Living Science) — forum for joyful innovations</span><span class="yr">2017–2020</span></li>
+      <li><span>Demonstration of grating diffraction &amp; spatial light modulator, Open House, IIT Delhi</span><span class="yr">2019</span></li>
+      <li><span>Demonstration of holography &amp; 3D printing, Open House, IIT Delhi</span><span class="yr">2017</span></li>
+    </ul>
+  </section>
+
+  <section id="references">
+    <h2>References</h2>
+    <div class="refs">
+      <div class="ref">
+        <strong>Prof. Joby Joseph</strong>
+        <span>Dept. of Physics (Optics and Photonics Centre)</span>
+        <span>IIT Delhi, India</span>
+        <span><a href="mailto:joby@iitd.ac.in">joby@iitd.ac.in</a></span>
+      </div>
+      <div class="ref">
+        <strong>Prof. Balpreet Singh Ahluwalia</strong>
+        <span>Dept. of Physics and Technology</span>
+        <span>UiT — The Arctic University of Tromsø, Norway</span>
+        <span><a href="mailto:balpreet.singh.ahluwalia@uit.no">balpreet.singh.ahluwalia@uit.no</a></span>
+      </div>
+      <div class="ref">
+        <strong>Prof. Sri-Rajasekhar Kothapalli</strong>
+        <span>Dept. of Biomedical Engineering</span>
+        <span>Pennsylvania State University, USA</span>
+        <span><a href="mailto:szk416@psu.edu">szk416@psu.edu</a></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Krishnendu Samanta · Updated 2026
+</footer>
+
+<script>
+  (function(){
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('main > section');
+
+    function activate(id, push){
+      panels.forEach(function(p){ p.classList.toggle('active', p.id === id); });
+      btns.forEach(function(b){
+        var on = b.dataset.tab === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if(push) history.replaceState(null, '', '#' + id);
+    }
+
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        activate(b.dataset.tab, true);
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    });
+
+    var initial = (location.hash || '').replace('#','');
+    var valid = Array.prototype.some.call(panels, function(p){ return p.id === initial; });
+    activate(valid ? initial : 'about', false);
+  })();
+</script>
+
+</body>
+</html>
